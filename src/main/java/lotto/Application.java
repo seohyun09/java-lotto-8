@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -48,6 +47,8 @@ public class Application {
             int rank = LottoResultChecker.LottoMatch(lottos.get(i), numbers, bonusNumber);
             LottoRank[rank]++;
         }
-        System.out.println(Arrays.toString(LottoRank));
+
+        LottoResultChecker.printLottoResult(LottoRank);
+
     }
 }
