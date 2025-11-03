@@ -29,7 +29,14 @@ public class Application {
         String inputWinningNumbers = Console.readLine();
         String[] winningNumbers = LottoNumberValidator.validateNumOfWinningNumber(inputWinningNumbers);
 
-        LottoNumberValidator.validateUniqueWinningNumber(winningNumbers);
+        int[] numbers = LottoNumberValidator.validateUniqueWinningNumber(winningNumbers);
+
+        System.out.println("보너스 번호를 입력하세요.");
+        String inputBonus = Console.readLine();
+
+        LottoNumberValidator.validateWinningNumberRange(inputBonus);
+        int bonusNumber = LottoNumberValidator.validateUniqueBonusNumber(numbers, inputBonus);
+
 
     }
 }

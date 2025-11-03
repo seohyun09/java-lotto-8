@@ -13,7 +13,7 @@ public final class LottoNumberValidator {
         return winningNumbers;
     }
 
-    public static void validateUniqueWinningNumber(String[] winningNumbers) {
+    public static int[] validateUniqueWinningNumber(String[] winningNumbers) {
         int[] numbers = new int[winningNumbers.length];
         Set<String> set = new HashSet<>();
 
@@ -25,6 +25,7 @@ public final class LottoNumberValidator {
 
             numbers[i] = validateWinningNumberRange(winningNumbers[i]);
         }
+        return numbers;
     }
 
     public static int validateWinningNumberRange(String winningNumber) {
@@ -37,5 +38,15 @@ public final class LottoNumberValidator {
             throw new IllegalArgumentException("당첨 번호는 1과 45 사이의 숫자이어야 합니다.");
         }
         return number;
+    }
+
+    public static int validateUniqueBonusNumber(int[] numbers, String inputBonus) {
+        int bonusNumber = Integer.parseInt(inputBonus);
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == bonusNumber) {
+                throw new IllegalArgumentException("보너스 번호가 당첨 번호와 중복됩니다.");
+            }
+        }
+        return bonusNumber;
     }
 }
