@@ -50,5 +50,8 @@ public class Application {
 
         LottoResultChecker.printLottoResult(LottoRank);
 
+        int totalPrize = LottoResultChecker.retunRate(LottoRank);
+        double rate = (double) totalPrize / price * 100;
+        System.out.printf("총 수익률은 %.1f%%입니다.%n", rate);
     }
 }

@@ -51,6 +51,16 @@ public class LottoResultChecker {
         System.out.println("4개 일치 (50,000원) - " + LottoRank[4] + "개");
         System.out.println("5개 일치 (1,500,000원) - " + LottoRank[3] + "개");
         System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + LottoRank[2] + "개");
-        System.out.println("6개 일치 (2,000,000원) - " + LottoRank[1] + "개");
+        System.out.println("6개 일치 (2,000,000,000원) - " + LottoRank[1] + "개");
+    }
+
+    public static int retunRate(int[] LottoRank) {
+        int prize[] = {2000000000, 30000000, 1500000, 50000, 5000};
+        int totalPrize = 0;
+
+        for (int i = 1; i < 6; i++) {
+            totalPrize += LottoRank[i] * prize[i - 1];
+        }
+        return totalPrize;
     }
 }
