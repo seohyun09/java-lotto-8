@@ -22,4 +22,9 @@ public class Lotto {
     private void printLottoNumbers() {
         System.out.println(numbers);
     }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
 }

@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -37,6 +38,16 @@ public class Application {
         LottoNumberValidator.validateWinningNumberRange(inputBonus);
         int bonusNumber = LottoNumberValidator.validateUniqueBonusNumber(numbers, inputBonus);
 
+        System.out.println("당첨 통계");
+        System.out.println("---");
 
+        LottoResultChecker.numToSet(numbers);
+
+        int[] LottoRank = new int[6];
+        for (int i = 0; i < lottos.size(); i++) {
+            int rank = LottoResultChecker.LottoMatch(lottos.get(i), numbers, bonusNumber);
+            LottoRank[rank]++;
+        }
+        System.out.println(Arrays.toString(LottoRank));
     }
 }
