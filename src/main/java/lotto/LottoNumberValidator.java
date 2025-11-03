@@ -8,7 +8,7 @@ public final class LottoNumberValidator {
     public static String[] validateNumOfWinningNumber(String inputWinningNumbers) {
         String[] winningNumbers = inputWinningNumbers.split(",");
         if (winningNumbers.length != 6) {
-            throw new IllegalArgumentException("당첨 번호 개수가 6개가 아닙니다.");
+            throw new IllegalArgumentException("[ERROR] 당첨 번호 개수가 6개가 아닙니다.");
         }
         return winningNumbers;
     }
@@ -19,7 +19,7 @@ public final class LottoNumberValidator {
 
         for (int i = 0; i < numbers.length; i++) {
             if (set.contains(winningNumbers[i])) {
-                throw new IllegalArgumentException("당첨 번호는 중복될 수 없습니다.");
+                throw new IllegalArgumentException("[ERROR] 당첨 번호는 중복될 수 없습니다.");
             }
             set.add(winningNumbers[i]);
 
@@ -30,12 +30,12 @@ public final class LottoNumberValidator {
 
     public static int validateWinningNumberRange(String winningNumber) {
         if (!winningNumber.matches("^\\d+")) {
-            throw new IllegalArgumentException("입력한 당첨 번호는 양의 정수이어야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 입력한 당첨 번호는 양의 정수이어야 합니다.");
         }
 
         int number = Integer.parseInt(winningNumber);
         if (number < 1 || number > 45) {
-            throw new IllegalArgumentException("당첨 번호는 1과 45 사이의 숫자이어야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 당첨 번호는 1과 45 사이의 숫자이어야 합니다.");
         }
         return number;
     }
@@ -44,7 +44,7 @@ public final class LottoNumberValidator {
         int bonusNumber = Integer.parseInt(inputBonus);
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == bonusNumber) {
-                throw new IllegalArgumentException("보너스 번호가 당첨 번호와 중복됩니다.");
+                throw new IllegalArgumentException("[ERROR] 보너스 번호가 당첨 번호와 중복됩니다.");
             }
         }
         return bonusNumber;
