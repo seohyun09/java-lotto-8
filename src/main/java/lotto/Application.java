@@ -9,8 +9,17 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         System.out.println("구입금액을 입력해 주세요.");
-        String inputPrice = Console.readLine();
-        PriceValidator.validatePlusPrice(inputPrice);
+        String inputPrice = "";
+        boolean isValid = true;
+        do {
+            try {
+                inputPrice = Console.readLine();
+                int price = Integer.parseInt(inputPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("[ERROR] 구입금액은 양수이어야 합니다.");
+                isValid = false;
+            }
+        } while (!isValid);
 
         int price = Integer.parseInt(inputPrice);
         PriceValidator.validatePriceUnit(price);
